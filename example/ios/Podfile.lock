@@ -2,10 +2,16 @@ PODS:
   - Flutter (1.0.0)
   - flutter_zoho_salesiq (0.0.1):
     - Flutter
+    - Mobilisten
+  - Mobilisten (4.2.10)
 
 DEPENDENCIES:
   - Flutter (from `Flutter`)
   - flutter_zoho_salesiq (from `.symlinks/plugins/flutter_zoho_salesiq/ios`)
+
+SPEC REPOS:
+  trunk:
+    - Mobilisten
 
 EXTERNAL SOURCES:
   Flutter:
@@ -15,7 +21,8 @@ EXTERNAL SOURCES:
 
 SPEC CHECKSUMS:
   Flutter: f04841e97a9d0b0a8025694d0796dd46242b2854
-  flutter_zoho_salesiq: dfea57675743216dcff35354c4bc21856b7f74b6
+  flutter_zoho_salesiq: 67b7e2ec22ff6d1adfc2c44ca64fb84a6373dd2d
+  Mobilisten: 6ed44c2f0cb492797d02e53de7f1af17b96dca4f
 
 PODFILE CHECKSUM: ef19549a9bc3046e7bb7d2fab4d021637c0c58a3
 

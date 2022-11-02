@@ -10,9 +10,13 @@ class MethodChannelFlutterZohoSalesIQ extends FlutterZohoSalesIQPlatform {
   final methodChannel = const MethodChannel('flutter_zoho_salesiq');
 
   @override
-  Future<String?> getPlatformVersion() async {
-    final version =
-        await methodChannel.invokeMethod<String>('getPlatformVersion');
-    return version;
+  Future<bool?> initSDK(String appKey, String accessKey) async {
+    return methodChannel.invokeMethod<bool>(
+      'initSDK',
+      {
+        'appKey': appKey,
+        'accessKey': accessKey,
+      },
+    );
   }
 }

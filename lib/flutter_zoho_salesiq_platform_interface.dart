@@ -24,7 +24,7 @@ abstract class FlutterZohoSalesIQPlatform extends PlatformInterface {
     _instance = instance;
   }
 
-  Future<String?> getPlatformVersion() {
-    throw UnimplementedError('platformVersion() has not been implemented.');
+  Future<bool?> initSDK(String appKey, String accessKey) {
+    throw UnimplementedError('initSDK() has not been implemented.');
   }
 }

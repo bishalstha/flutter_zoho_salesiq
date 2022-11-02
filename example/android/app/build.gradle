@@ -60,6 +60,7 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+  namespace 'com.bishalstha.flutter_zoho_salesiq_example'
 }
 
 flutter {
