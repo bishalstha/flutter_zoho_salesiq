@@ -7,4 +7,16 @@ class FlutterZohoSalesIQ {
   }) {
     return FlutterZohoSalesIQPlatform.instance.initSDK(appKey, accessKey);
   }
+
+  static Future<void> setVisitorName(String name) {
+    return FlutterZohoSalesIQPlatform.instance.setVisitorName(name);
+  }
+
+  static Future<void> setVisitorEmail(String email) {
+    return FlutterZohoSalesIQPlatform.instance.setVisitorEmail(email);
+  }
+
+  static Future<void> showChat() {
+    return FlutterZohoSalesIQPlatform.instance.showChat();
+  }
 }

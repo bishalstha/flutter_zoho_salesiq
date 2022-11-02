@@ -10,10 +10,16 @@ public class SwiftFlutterZohoSalesIQPlugin: NSObject, FlutterPlugin {
   }
   
   public func handle(_ call: FlutterMethodCall, result: @escaping FlutterResult) {
+    let data = call.arguments as! [String: String]
     switch call.method {
     case "initSDK":
-      let data = call.arguments as! [String: String]
       initSDK(data["appKey"]!, data["accessKey"]!, result)
+    case "setVisitorName":
+      setVisitorName(data["name"]!, result)
+    case "setVisitorEmail":
+      setVisitorEmail(data["email"]!, result)
+    case "showChat":
+      showChat(result)
     default: result(nil)
     }
   }
@@ -22,5 +28,20 @@ public class SwiftFlutterZohoSalesIQPlugin: NSObject, FlutterPlugin {
     ZohoSalesIQ.initWithAppKey(appKey, accessKey: accessKey) { complete in
       result(complete)
     }
+  }
+  
+  private func setVisitorName(_ name: String, _ result: @escaping FlutterResult) -> Void {
+    ZohoSalesIQ.Visitor.setName(name)
+    result(nil)
+  }
+  
+  private func setVisitorEmail(_ email: String, _ result: @escaping FlutterResult) -> Void {
+    ZohoSalesIQ.Visitor.setEmail(email)
+    result(nil)
+  }
+  
+  private func showChat(_ result: @escaping FlutterResult) -> Void {
+    ZohoSalesIQ.Chat.show()
+    result(nil)
   }
 }

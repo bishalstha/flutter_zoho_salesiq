@@ -31,11 +31,14 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
-              onPressed: () {},
+              onPressed: () {
+                FlutterZohoSalesIQ.setVisitorName('First Last');
+                FlutterZohoSalesIQ.setVisitorEmail('test@email.com');
+              },
               child: const Text("Initialize User's Details"),
             ),
             TextButton(
-              onPressed: () {},
+              onPressed: () => FlutterZohoSalesIQ.showChat(),
               child: const Text('Open Live Chat'),
             ),
           ],
