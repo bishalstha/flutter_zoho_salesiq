@@ -31,9 +31,19 @@ class _MyAppState extends State<MyApp> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             TextButton(
+              onPressed: () =>
+                  FlutterZohoSalesIQ.registerVisitor('test_user_id'),
+              child: const Text('Register Visitor'),
+            ),
+            TextButton(
+              onPressed: () => FlutterZohoSalesIQ.unregisterVisitor(),
+              child: const Text('Unregister Visitor'),
+            ),
+            TextButton(
               onPressed: () {
                 FlutterZohoSalesIQ.setVisitorName('First Last');
                 FlutterZohoSalesIQ.setVisitorEmail('test@email.com');
+                FlutterZohoSalesIQ.setDepartment('DeptName');
               },
               child: const Text("Initialize User's Details"),
             ),

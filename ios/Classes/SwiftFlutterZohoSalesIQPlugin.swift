@@ -14,20 +14,34 @@ public class SwiftFlutterZohoSalesIQPlugin: NSObject, FlutterPlugin {
     switch call.method {
     case "initSDK":
       initSDK(data["appKey"]!, data["accessKey"]!, result)
+    case "registerVisitor":
+      registerVisitor(data["id"]!, result)
+    case "unregisterVisitor":
+      unregisterVisitor(result)
     case "setVisitorName":
       setVisitorName(data["name"]!, result)
     case "setVisitorEmail":
       setVisitorEmail(data["email"]!, result)
+    case "addInfos":
+      addInfos(data, result)
+    case "setDepartment":
+      setDepartment(data["name"]!, result)
     case "showChat":
       showChat(result)
-    default: result(nil)
+    default: fatalError("\(call.method) is not implemented!")
     }
   }
   
   private func initSDK(_ appKey: String, _ accessKey: String, _ result: @escaping FlutterResult) -> Void {
-    ZohoSalesIQ.initWithAppKey(appKey, accessKey: accessKey) { complete in
-      result(complete)
-    }
+    ZohoSalesIQ.initWithAppKey(appKey, accessKey: accessKey) { result($0) }
+  }
+  
+  private func registerVisitor(_ id: String, _ result: @escaping FlutterResult) -> Void {
+    ZohoSalesIQ.registerVisitor(id) { result($0) }
+  }
+  
+  private func unregisterVisitor(_ result: @escaping FlutterResult) -> Void {
+    ZohoSalesIQ.unregisterVisitor() { result($0) }
   }
   
   private func setVisitorName(_ name: String, _ result: @escaping FlutterResult) -> Void {
@@ -37,6 +51,18 @@ public class SwiftFlutterZohoSalesIQPlugin: NSObject, FlutterPlugin {
   
   private func setVisitorEmail(_ email: String, _ result: @escaping FlutterResult) -> Void {
     ZohoSalesIQ.Visitor.setEmail(email)
+    result(nil)
+  }
+  
+  private func addInfos(_ data: [String: String], _ result: @escaping FlutterResult) -> Void {
+    for key in data.keys {
+      ZohoSalesIQ.Visitor.addInfo(key, value: data[key]!)
+    }
+    result(nil)
+  }
+  
+  private func setDepartment(_ name: String, _ result: @escaping FlutterResult) -> Void {
+    ZohoSalesIQ.Chat.setDepartment(name)
     result(nil)
   }
   

@@ -28,12 +28,28 @@ abstract class FlutterZohoSalesIQPlatform extends PlatformInterface {
     throw UnimplementedError('initSDK() has not been implemented.');
   }
 
+  Future<bool?> registerVisitor(String id) {
+    throw UnimplementedError('registerVisitor() has not been implemented.');
+  }
+
+  Future<bool?> unregisterVisitor() {
+    throw UnimplementedError('unregisterVisitor() has not been implemented.');
+  }
+
   Future<void> setVisitorName(String name) {
     throw UnimplementedError('setVisitorName() has not been implemented.');
   }
 
   Future<void> setVisitorEmail(String email) {
     throw UnimplementedError('setVisitorEmail() has not been implemented.');
+  }
+
+  Future<void> addInfos(Map<String, String> infos) {
+    throw UnimplementedError('addInfos() has not been implemented.');
+  }
+
+  Future<void> setDepartment(String name) {
+    throw UnimplementedError('setDepartment() has not been implemented.');
   }
 
   Future<void> showChat() {
